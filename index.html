@@ -18,11 +18,8 @@
     --border: rgba(255,255,255,0.07);
     --glow: rgba(56,189,248,0.15);
   }
-
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
-
   body {
     background: var(--bg);
     color: var(--text);
@@ -31,8 +28,6 @@
     line-height: 1.7;
     overflow-x: hidden;
   }
-
-  /* ── BACKGROUND GRID ── */
   body::before {
     content: '';
     position: fixed;
@@ -44,8 +39,6 @@
     pointer-events: none;
     z-index: 0;
   }
-
-  /* ── NOISE OVERLAY ── */
   body::after {
     content: '';
     position: fixed;
@@ -55,7 +48,6 @@
     z-index: 0;
     opacity: 0.4;
   }
-
   .wrapper {
     position: relative;
     z-index: 1;
@@ -63,8 +55,6 @@
     margin: 0 auto;
     padding: 0 2rem;
   }
-
-  /* ── NAV ── */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -103,8 +93,6 @@
     transition: color 0.2s;
   }
   .nav-links a:hover { color: var(--accent); }
-
-  /* ── HERO ── */
   #hero {
     min-height: 100vh;
     display: flex;
@@ -112,7 +100,6 @@
     padding-top: 5rem;
     position: relative;
   }
-
   .hero-bg-blob {
     position: absolute;
     width: 600px; height: 600px;
@@ -126,7 +113,6 @@
     0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
     50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.7; }
   }
-
   .hero-content {
     display: grid;
     grid-template-columns: 1fr auto;
@@ -134,7 +120,6 @@
     align-items: center;
     width: 100%;
   }
-
   .hero-eyebrow {
     font-family: 'DM Mono', monospace;
     font-size: 0.75rem;
@@ -152,7 +137,6 @@
     width: 2rem; height: 1px;
     background: var(--accent);
   }
-
   h1 {
     font-family: 'DM Serif Display', serif;
     font-size: clamp(3rem, 6vw, 5.5rem);
@@ -161,11 +145,7 @@
     margin-bottom: 1.5rem;
     animation: fadeUp 0.8s 0.1s ease both;
   }
-  h1 em {
-    font-style: italic;
-    color: var(--accent);
-  }
-
+  h1 em { font-style: italic; color: var(--accent); }
   .hero-desc {
     font-size: 1.05rem;
     color: #94a3b8;
@@ -173,7 +153,6 @@
     margin-bottom: 2.5rem;
     animation: fadeUp 0.8s 0.2s ease both;
   }
-
   .hero-tags {
     display: flex;
     flex-wrap: wrap;
@@ -192,12 +171,7 @@
     background: var(--surface);
     transition: all 0.2s;
   }
-  .tag:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-    background: rgba(56,189,248,0.05);
-  }
-
+  .tag:hover { border-color: var(--accent); color: var(--accent); background: rgba(56,189,248,0.05); }
   .hero-cta {
     display: flex;
     gap: 1rem;
@@ -215,25 +189,10 @@
     transition: all 0.2s;
     cursor: pointer;
   }
-  .btn-primary {
-    background: var(--accent);
-    color: #0a0f1a;
-    border: 1px solid var(--accent);
-  }
-  .btn-primary:hover {
-    background: transparent;
-    color: var(--accent);
-  }
-  .btn-ghost {
-    background: transparent;
-    color: var(--text);
-    border: 1px solid var(--border);
-  }
-  .btn-ghost:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
-
+  .btn-primary { background: var(--accent); color: #0a0f1a; border: 1px solid var(--accent); }
+  .btn-primary:hover { background: transparent; color: var(--accent); }
+  .btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--border); }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
   .hero-photo-wrap {
     animation: fadeUp 0.8s 0.2s ease both;
     position: relative;
@@ -273,16 +232,18 @@
     color: var(--accent);
     letter-spacing: -0.02em;
   }
-
+  .hero-photo-inner img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: top center;
+    display: block;
+  }
   .hero-stats {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
     margin-top: 1.5rem;
   }
-  .stat {
-    text-align: center;
-  }
+  .stat { text-align: center; }
   .stat-num {
     font-family: 'DM Serif Display', serif;
     font-size: 1.8rem;
@@ -297,14 +258,8 @@
     letter-spacing: 0.1em;
     margin-top: 0.2rem;
   }
-
-  /* ── SECTION SHARED ── */
-  section {
-    padding: 6rem 0;
-  }
-  .section-header {
-    margin-bottom: 3.5rem;
-  }
+  section { padding: 6rem 0; }
+  .section-header { margin-bottom: 3.5rem; }
   .section-label {
     font-family: 'DM Mono', monospace;
     font-size: 0.7rem;
@@ -316,34 +271,22 @@
     align-items: center;
     gap: 0.75rem;
   }
-  .section-label::before {
-    content: '';
-    width: 1.5rem; height: 1px;
-    background: var(--accent);
-  }
+  .section-label::before { content: ''; width: 1.5rem; height: 1px; background: var(--accent); }
   h2 {
     font-family: 'DM Serif Display', serif;
     font-size: clamp(2rem, 4vw, 3rem);
     letter-spacing: -0.02em;
     line-height: 1.1;
   }
-
-  /* ── DIVIDER ── */
   .divider {
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--border), transparent);
-    margin: 0;
   }
-
-  /* ── EXPERIENCE ── */
-  .timeline {
-    position: relative;
-  }
+  .timeline { position: relative; }
   .timeline::before {
     content: '';
     position: absolute;
-    left: 0;
-    top: 0; bottom: 0;
+    left: 0; top: 0; bottom: 0;
     width: 1px;
     background: linear-gradient(180deg, var(--accent), var(--accent2), transparent);
   }
@@ -355,15 +298,11 @@
     transform: translateY(20px);
     transition: opacity 0.6s ease, transform 0.6s ease;
   }
-  .job.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  .job.visible { opacity: 1; transform: translateY(0); }
   .job::before {
     content: '';
     position: absolute;
-    left: -4px;
-    top: 0.4rem;
+    left: -4px; top: 0.4rem;
     width: 9px; height: 9px;
     border-radius: 50%;
     background: var(--accent);
@@ -376,107 +315,30 @@
     gap: 0.5rem 1.5rem;
     margin-bottom: 0.75rem;
   }
-  .job-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.3rem;
-    color: var(--text);
-  }
-  .job-company {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.75rem;
-    color: var(--accent);
-    letter-spacing: 0.05em;
-  }
-  .job-period {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--muted);
-    margin-left: auto;
-    letter-spacing: 0.05em;
-  }
-  .job-location {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--muted);
-  }
-  .job ul {
-    list-style: none;
-    margin-top: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  .job ul li {
-    font-size: 0.9rem;
-    color: #94a3b8;
-    padding-left: 1.25rem;
-    position: relative;
-  }
-  .job ul li::before {
-    content: '›';
-    position: absolute;
-    left: 0;
-    color: var(--accent);
-    font-size: 1rem;
-    line-height: 1.5;
-  }
-  .highlight {
-    color: var(--text);
-    font-weight: 500;
-  }
-
-  /* ── SKILLS ── */
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.25rem;
-  }
+  .job-title { font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: var(--text); }
+  .job-company { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--accent); letter-spacing: 0.05em; }
+  .job-period { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--muted); margin-left: auto; letter-spacing: 0.05em; }
+  .job-location { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--muted); }
+  .job ul { list-style: none; margin-top: 1rem; display: flex; flex-direction: column; gap: 0.5rem; }
+  .job ul li { font-size: 0.9rem; color: #94a3b8; padding-left: 1.25rem; position: relative; }
+  .job ul li::before { content: '›'; position: absolute; left: 0; color: var(--accent); font-size: 1rem; line-height: 1.5; }
+  .highlight { color: var(--text); font-weight: 500; }
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }
   .skill-card {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 8px;
     padding: 1.5rem;
-    transition: border-color 0.2s, transform 0.2s;
     opacity: 0;
     transform: translateY(16px);
     transition: opacity 0.5s ease, transform 0.5s ease, border-color 0.2s;
   }
-  .skill-card.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  .skill-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-2px);
-  }
-  .skill-cat {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    color: var(--accent);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 0.75rem;
-  }
-  .skill-pills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-  }
-  .pill {
-    font-size: 0.78rem;
-    padding: 0.2rem 0.6rem;
-    background: rgba(56,189,248,0.07);
-    border: 1px solid rgba(56,189,248,0.15);
-    border-radius: 4px;
-    color: #94a3b8;
-  }
-
-  /* ── CERTS & EDUCATION ── */
-  .two-col {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-  }
+  .skill-card.visible { opacity: 1; transform: translateY(0); }
+  .skill-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .skill-cat { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.75rem; }
+  .skill-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .pill { font-size: 0.78rem; padding: 0.2rem 0.6rem; background: rgba(56,189,248,0.07); border: 1px solid rgba(56,189,248,0.15); border-radius: 4px; color: #94a3b8; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
   .card {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -486,54 +348,21 @@
     transform: translateY(16px);
     transition: opacity 0.6s ease, transform 0.6s ease;
   }
-  .card.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  .card-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.1rem;
-    margin-bottom: 0.25rem;
-  }
-  .card-sub {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--accent);
-    letter-spacing: 0.05em;
-    margin-bottom: 0.5rem;
-  }
-  .card-detail {
-    font-size: 0.85rem;
-    color: var(--muted);
-  }
-  .cert-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  .cert-item {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
+  .card.visible { opacity: 1; transform: translateY(0); }
+  .card-title { font-family: 'DM Serif Display', serif; font-size: 1.1rem; margin-bottom: 0.25rem; }
+  .card-sub { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--accent); letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+  .card-detail { font-size: 0.85rem; color: var(--muted); }
+  .cert-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+  .cert-item { display: flex; align-items: center; gap: 0.75rem; }
   .cert-icon {
     width: 36px; height: 36px;
     background: linear-gradient(135deg, rgba(56,189,248,0.15), rgba(129,140,248,0.15));
     border: 1px solid rgba(56,189,248,0.2);
     border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; flex-shrink: 0;
   }
-  .cert-name {
-    font-size: 0.9rem;
-    font-weight: 400;
-  }
-
-  /* ── CONTACT FOOTER ── */
+  .cert-name { font-size: 0.9rem; font-weight: 400; }
   #contact {
     padding: 5rem 0;
     text-align: center;
@@ -551,39 +380,12 @@
     transform: translate(-50%, -50%);
     pointer-events: none;
   }
-  .contact-inner {
-    position: relative;
-    z-index: 1;
-  }
-  .contact-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--accent2);
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-  }
-  .contact-heading {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(2rem, 4vw, 3.5rem);
-    margin-bottom: 1rem;
-    letter-spacing: -0.02em;
-  }
-  .contact-heading em {
-    font-style: italic;
-    color: var(--accent2);
-  }
-  .contact-sub {
-    color: var(--muted);
-    margin-bottom: 2.5rem;
-    font-size: 0.95rem;
-  }
-  .contact-links {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-  }
+  .contact-inner { position: relative; z-index: 1; }
+  .contact-label { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--accent2); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1rem; }
+  .contact-heading { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 4vw, 3.5rem); margin-bottom: 1rem; letter-spacing: -0.02em; }
+  .contact-heading em { font-style: italic; color: var(--accent2); }
+  .contact-sub { color: var(--muted); margin-bottom: 2.5rem; font-size: 0.95rem; }
+  .contact-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
   .contact-link {
     font-family: 'DM Mono', monospace;
     font-size: 0.75rem;
@@ -591,42 +393,21 @@
     text-transform: uppercase;
     color: var(--muted);
     text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    display: flex; align-items: center; gap: 0.5rem;
     transition: color 0.2s;
     padding: 0.6rem 1.2rem;
     border: 1px solid var(--border);
     border-radius: 4px;
   }
-  .contact-link:hover {
-    color: var(--accent);
-    border-color: var(--accent);
-  }
-  .footer-copy {
-    margin-top: 3rem;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    color: var(--muted);
-    letter-spacing: 0.05em;
-    opacity: 0.5;
-  }
-
-  /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* ── RESPONSIVE ── */
+  .contact-link:hover { color: var(--accent); border-color: var(--accent); }
+  .footer-copy { margin-top: 3rem; font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--muted); letter-spacing: 0.05em; opacity: 0.5; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
   @media (max-width: 768px) {
     .hero-content { grid-template-columns: 1fr; }
     .hero-photo-wrap { display: none; }
     .two-col { grid-template-columns: 1fr; }
     .nav-links { display: none; }
   }
-
-  /* ── SCROLLBAR ── */
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: var(--bg); }
   ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
@@ -634,7 +415,6 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-inner">
     <span class="nav-logo">SR// DevOps & Cloud</span>
@@ -647,7 +427,6 @@
   </div>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
   <div class="wrapper">
     <div class="hero-bg-blob"></div>
@@ -673,21 +452,15 @@
       </div>
       <div class="hero-photo-wrap">
         <div class="hero-photo-frame">
-          <div class="hero-photo-inner">SR</div>
+          <div class="hero-photo-inner">
+            <!-- Replace with: <img src="your-photo.jpg" alt="Swetha Raji"> once you upload your photo -->
+            SR
+          </div>
         </div>
         <div class="hero-stats">
-          <div class="stat">
-            <div class="stat-num">8+</div>
-            <div class="stat-label">Years Exp.</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">200+</div>
-            <div class="stat-label">VMs Migrated</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">99.9%</div>
-            <div class="stat-label">Uptime SLA</div>
-          </div>
+          <div class="stat"><div class="stat-num">8+</div><div class="stat-label">Years Exp.</div></div>
+          <div class="stat"><div class="stat-num">200+</div><div class="stat-label">VMs Migrated</div></div>
+          <div class="stat"><div class="stat-num">99.9%</div><div class="stat-label">Uptime SLA</div></div>
         </div>
       </div>
     </div>
@@ -696,16 +469,13 @@
 
 <div class="divider"></div>
 
-<!-- EXPERIENCE -->
 <section id="experience">
   <div class="wrapper">
     <div class="section-header">
       <div class="section-label">Career</div>
       <h2>Experience</h2>
     </div>
-
     <div class="timeline">
-
       <div class="job">
         <div class="job-meta">
           <span class="job-title">DevOps Engineer</span>
@@ -714,14 +484,13 @@
           <span class="job-period">Jan 2025 — Mar 2025</span>
         </div>
         <ul>
-          <li>Migrated legacy SFTP infrastructure to <span class="highlight">serverless AWS architecture (Lambda + S3)</span>, reducing maintenance overhead by <span class="highlight">30%</span>.</li>
-          <li>Managed AWS infrastructure for large-scale <span class="highlight">educational testing platforms</span>, ensuring <span class="highlight">99.9% uptime</span> during nationwide school assessments.</li>
+          <li>Migrated legacy SFTP to <span class="highlight">serverless AWS (Lambda + S3)</span>, reducing maintenance overhead by <span class="highlight">30%</span>.</li>
+          <li>Managed AWS for large-scale <span class="highlight">educational testing platforms</span>, ensuring <span class="highlight">99.9% uptime</span> during nationwide assessments.</li>
           <li>Implemented <span class="highlight">CloudWatch and Datadog</span> monitoring, reducing incident detection time by <span class="highlight">40%</span>.</li>
           <li>Enabled intelligent scaling with <span class="highlight">Auto Scaling Groups</span>, delivering <span class="highlight">35% cost savings</span> during non-peak periods.</li>
           <li>Improved cross-team delivery through <span class="highlight">Jira and Confluence</span> for sprint planning, incident tracking, and documentation.</li>
         </ul>
       </div>
-
       <div class="job">
         <div class="job-meta">
           <span class="job-title">Azure DevOps Engineer</span>
@@ -732,13 +501,12 @@
         <ul>
           <li>Architected end-to-end <span class="highlight">Azure DevOps YAML pipelines</span> integrated with Jira, improving traceability and release visibility.</li>
           <li>Built pipelines for <span class="highlight">AKS</span>, automating container image deployment, Kubernetes manifest/Helm releases, and environment-specific rollouts.</li>
-          <li>Implemented CI/CD for <span class="highlight">Azure App Service–hosted APIs</span>, enabling automated deployments, scaling, and monitoring via Azure Monitor and Application Insights.</li>
-          <li>Integrated <span class="highlight">Azure Key Vault</span> for secure secrets management and automated security scanning within CI/CD pipelines.</li>
-          <li>Designed and deployed <span class="highlight">serverless workloads using Azure Functions</span> with Azure Service Bus and Storage, reducing infrastructure overhead.</li>
-          <li>Delivered <span class="highlight">zero-downtime deployments</span> using blue-green and canary release strategies; reduced deployment times by <span class="highlight">40%</span>.</li>
+          <li>Implemented CI/CD for <span class="highlight">Azure App Service APIs</span> with Azure Monitor and Application Insights.</li>
+          <li>Integrated <span class="highlight">Azure Key Vault</span> for secure secrets management within CI/CD pipelines.</li>
+          <li>Deployed <span class="highlight">serverless workloads via Azure Functions</span> with Azure Service Bus and Storage.</li>
+          <li>Delivered <span class="highlight">zero-downtime deployments</span> via blue-green and canary strategies; cut deploy times by <span class="highlight">40%</span>.</li>
         </ul>
       </div>
-
       <div class="job">
         <div class="job-meta">
           <span class="job-title">Cloud Engineer</span>
@@ -747,15 +515,14 @@
           <span class="job-period">Jan 2020 — Feb 2024</span>
         </div>
         <ul>
-          <li>Led migration of <span class="highlight">200+ on-premises VMs</span> with zero data loss using Azure Migration Services and Azure SQL migration tools.</li>
+          <li>Led migration of <span class="highlight">200+ on-premises VMs</span> with zero data loss using Azure Migration Services.</li>
           <li>Automated infrastructure provisioning using <span class="highlight">Terraform</span>, reducing manual effort by <span class="highlight">50%</span>.</li>
-          <li>Improved system resilience with <span class="highlight">Azure Backup and Site Recovery</span> targeting <span class="highlight">15-min RPO / 2-hr RTO</span>.</li>
-          <li>Designed and managed secure <span class="highlight">Azure networking</span> (VNets, subnets, NSGs, routing) across Dev, Staging, and Production.</li>
-          <li>Implemented <span class="highlight">SSO and access governance</span> using Azure AD and IAM policies, strengthening compliance.</li>
-          <li>Optimised application performance with <span class="highlight">Azure Monitor and Application Insights</span>, improving responsiveness by <span class="highlight">30%</span>.</li>
+          <li>Improved system resilience with <span class="highlight">Azure Backup and Site Recovery</span> — <span class="highlight">15-min RPO / 2-hr RTO</span>.</li>
+          <li>Designed secure <span class="highlight">Azure networking</span> (VNets, subnets, NSGs, routing) across Dev, Staging, and Production.</li>
+          <li>Implemented <span class="highlight">SSO with Azure AD and IAM policies</span>, strengthening compliance.</li>
+          <li>Improved app performance by <span class="highlight">30%</span> using Azure Monitor and Application Insights.</li>
         </ul>
       </div>
-
       <div class="job">
         <div class="job-meta">
           <span class="job-title">Application Support Lead</span>
@@ -764,20 +531,18 @@
           <span class="job-period">Jun 2016 — Dec 2019</span>
         </div>
         <ul>
-          <li>Led an <span class="highlight">11-member support team</span> maintaining <span class="highlight">99.5% SLA compliance</span> across mission-critical .NET and Java applications.</li>
+          <li>Led an <span class="highlight">11-member support team</span> maintaining <span class="highlight">99.5% SLA</span> across mission-critical .NET and Java apps.</li>
           <li>Reduced <span class="highlight">MTTR by 25%</span> through root cause analysis and automation of incident resolution workflows.</li>
           <li>Implemented <span class="highlight">ITIL-aligned</span> change and incident management using Jira and Confluence.</li>
           <li>Deployed proactive monitoring dashboards and alerts, reducing manual intervention and improving uptime.</li>
         </ul>
       </div>
-
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- SKILLS -->
 <section id="skills">
   <div class="wrapper">
     <div class="section-header">
@@ -785,100 +550,22 @@
       <h2>Skills</h2>
     </div>
     <div class="skills-grid">
-      <div class="skill-card">
-        <div class="skill-cat">Cloud Platforms</div>
-        <div class="skill-pills">
-          <span class="pill">Microsoft Azure</span>
-          <span class="pill">AWS</span>
-          <span class="pill">Azure Integration</span>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-cat">DevOps & CI/CD</div>
-        <div class="skill-pills">
-          <span class="pill">Azure DevOps</span>
-          <span class="pill">GitHub Actions</span>
-          <span class="pill">Jenkins</span>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-cat">Containerisation</div>
-        <div class="skill-pills">
-          <span class="pill">Docker</span>
-          <span class="pill">Azure Container Registry</span>
-          <span class="pill">ACI</span>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-cat">Orchestration</div>
-        <div class="skill-pills">
-          <span class="pill">Kubernetes</span>
-          <span class="pill">AKS</span>
-          <span class="pill">Argo CD</span>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-cat">Infrastructure as Code</div>
-        <div class="skill-pills">
-          <span class="pill">Terraform</span>
-          <span class="pill">ARM Templates</span>
-          <span class="pill">Ansible</span>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-cat">Monitoring & Observability</div>
-        <div class="skill-pills">
-          <span class="pill">Azure Monitor</span>
-          <span class="pill">Datadog</span>
-          <span class="pill">Splunk</span>
-          <span class="pill">Grafana</span>
-          <span class="pill">Prometheus</span>
-          <span class="pill">ELK</span>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-cat">Security</div>
-        <div class="skill-pills">
-          <span class="pill">Azure Key Vault</span>
-          <span class="pill">Azure AD</span>
-          <span class="pill">Defender for Cloud</span>
-          <span class="pill">RBAC</span>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-cat">Scripting & Tools</div>
-        <div class="skill-pills">
-          <span class="pill">Shell / Bash</span>
-          <span class="pill">Azure CLI</span>
-          <span class="pill">Jira</span>
-          <span class="pill">Confluence</span>
-          <span class="pill">ServiceNow</span>
-          <span class="pill">SonarQube</span>
-          <span class="pill">GitHub Copilot</span>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-cat">Databases</div>
-        <div class="skill-pills">
-          <span class="pill">Azure SQL</span>
-          <span class="pill">Cosmos DB</span>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-cat">Methodologies</div>
-        <div class="skill-pills">
-          <span class="pill">Agile / Scrum</span>
-          <span class="pill">Kanban</span>
-          <span class="pill">ITIL</span>
-        </div>
-      </div>
+      <div class="skill-card"><div class="skill-cat">Cloud Platforms</div><div class="skill-pills"><span class="pill">Microsoft Azure</span><span class="pill">AWS</span><span class="pill">Azure Integration</span></div></div>
+      <div class="skill-card"><div class="skill-cat">DevOps & CI/CD</div><div class="skill-pills"><span class="pill">Azure DevOps</span><span class="pill">GitHub Actions</span><span class="pill">Jenkins</span></div></div>
+      <div class="skill-card"><div class="skill-cat">Containerisation</div><div class="skill-pills"><span class="pill">Docker</span><span class="pill">Azure Container Registry</span><span class="pill">ACI</span></div></div>
+      <div class="skill-card"><div class="skill-cat">Orchestration</div><div class="skill-pills"><span class="pill">Kubernetes</span><span class="pill">AKS</span><span class="pill">Argo CD</span></div></div>
+      <div class="skill-card"><div class="skill-cat">Infrastructure as Code</div><div class="skill-pills"><span class="pill">Terraform</span><span class="pill">ARM Templates</span><span class="pill">Ansible</span></div></div>
+      <div class="skill-card"><div class="skill-cat">Monitoring & Observability</div><div class="skill-pills"><span class="pill">Azure Monitor</span><span class="pill">Datadog</span><span class="pill">Splunk</span><span class="pill">Grafana</span><span class="pill">Prometheus</span><span class="pill">ELK</span></div></div>
+      <div class="skill-card"><div class="skill-cat">Security</div><div class="skill-pills"><span class="pill">Azure Key Vault</span><span class="pill">Azure AD</span><span class="pill">Defender for Cloud</span><span class="pill">RBAC</span></div></div>
+      <div class="skill-card"><div class="skill-cat">Scripting & Tools</div><div class="skill-pills"><span class="pill">Shell / Bash</span><span class="pill">Azure CLI</span><span class="pill">Jira</span><span class="pill">Confluence</span><span class="pill">ServiceNow</span><span class="pill">SonarQube</span><span class="pill">GitHub Copilot</span></div></div>
+      <div class="skill-card"><div class="skill-cat">Databases</div><div class="skill-pills"><span class="pill">Azure SQL</span><span class="pill">Cosmos DB</span></div></div>
+      <div class="skill-card"><div class="skill-cat">Methodologies</div><div class="skill-pills"><span class="pill">Agile / Scrum</span><span class="pill">Kanban</span><span class="pill">ITIL</span></div></div>
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- EDUCATION & CERTS -->
 <section id="education">
   <div class="wrapper">
     <div class="section-header">
@@ -896,17 +583,14 @@
         <div style="margin-top:2rem;">
           <div class="section-label" style="margin-bottom:1rem;">Languages</div>
           <div style="display:flex; flex-direction:column; gap:0.75rem;">
-            <div style="display:flex; justify-content:space-between; align-items:center; padding: 0.75rem 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: 6px;">
-              <span style="font-size:0.9rem;">English</span>
-              <span class="pill">Proficient</span>
+            <div style="display:flex; justify-content:space-between; align-items:center; padding:0.75rem 1rem; background:var(--surface); border:1px solid var(--border); border-radius:6px;">
+              <span style="font-size:0.9rem;">English</span><span class="pill">Proficient</span>
             </div>
-            <div style="display:flex; justify-content:space-between; align-items:center; padding: 0.75rem 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: 6px;">
-              <span style="font-size:0.9rem;">Tamil</span>
-              <span class="pill">Proficient</span>
+            <div style="display:flex; justify-content:space-between; align-items:center; padding:0.75rem 1rem; background:var(--surface); border:1px solid var(--border); border-radius:6px;">
+              <span style="font-size:0.9rem;">Tamil</span><span class="pill">Proficient</span>
             </div>
-            <div style="display:flex; justify-content:space-between; align-items:center; padding: 0.75rem 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: 6px;">
-              <span style="font-size:0.9rem;">Dutch</span>
-              <span class="pill">Learning — A1</span>
+            <div style="display:flex; justify-content:space-between; align-items:center; padding:0.75rem 1rem; background:var(--surface); border:1px solid var(--border); border-radius:6px;">
+              <span style="font-size:0.9rem;">Dutch</span><span class="pill">Learning — A1</span>
             </div>
           </div>
         </div>
@@ -934,7 +618,8 @@
           <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
             <span class="pill" style="font-size:0.85rem; padding:0.4rem 0.9rem;">💃 Dancing</span>
             <span class="pill" style="font-size:0.85rem; padding:0.4rem 0.9rem;">🎨 Painting & Crafts</span>
-            <span class="pill" style="font-size:0.85rem; padding:0.4rem 0.9rem;">🎨 Photography</span>
+            <span class="pill" style="font-size:0.85rem; padding:0.4rem 0.9rem;">📷 Photography</span>
+            <span class="pill" style="font-size:0.85rem; padding:0.4rem 0.9rem;">📷 Photography</span>
           </div>
         </div>
       </div>
@@ -944,7 +629,6 @@
 
 <div class="divider"></div>
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="wrapper">
     <div class="contact-inner">
@@ -971,12 +655,9 @@
 </section>
 
 <script>
-  // Intersection Observer for scroll animations
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
+      if (entry.isIntersecting) entry.target.classList.add('visible');
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
@@ -985,6 +666,5 @@
     observer.observe(el);
   });
 </script>
-
 </body>
 </html>
