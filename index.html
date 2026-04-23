@@ -401,6 +401,19 @@
   }
   .contact-link:hover { color: var(--accent); border-color: var(--accent); }
   .footer-copy { margin-top: 3rem; font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--muted); letter-spacing: 0.05em; opacity: 0.5; }
+  .contact-form-wrap { max-width: 600px; margin: 3rem auto 2rem; text-align: left; }
+  .contact-form-label { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--accent2); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+  .contact-form-label::before { content: ''; width: 1.5rem; height: 1px; background: var(--accent2); }
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-group label { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
+  .contact-form input, .contact-form textarea { background: var(--surface2); border: 1px solid var(--border); border-radius: 6px; padding: 0.75rem 1rem; color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 300; outline: none; transition: border-color 0.2s, box-shadow 0.2s; resize: vertical; width: 100%; }
+  .contact-form input::placeholder, .contact-form textarea::placeholder { color: var(--muted); opacity: 0.6; }
+  .contact-form input:focus, .contact-form textarea:focus { border-color: var(--accent2); box-shadow: 0 0 0 3px rgba(129,140,248,0.1); }
+  .form-btn { display: flex; align-items: center; gap: 0.6rem; align-self: flex-start; border: none; cursor: pointer; margin-top: 0.5rem; }
+  .form-success { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--accent3); padding: 0.75rem 1rem; background: rgba(52,211,153,0.08); border: 1px solid rgba(52,211,153,0.2); border-radius: 6px; }
+  .form-error { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: #f87171; padding: 0.75rem 1rem; background: rgba(248,113,113,0.08); border: 1px solid rgba(248,113,113,0.2); border-radius: 6px; }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
   @media (max-width: 768px) {
     .hero-content { grid-template-columns: 1fr; }
@@ -453,8 +466,8 @@
       <div class="hero-photo-wrap">
         <div class="hero-photo-frame">
           <div class="hero-photo-inner">
-            <!-- Replace with: <img src="your-photo.jpg" alt="Swetha Raji"> once you upload your photo -->
-            SR
+            <!-- PHOTO: save your photo as "photo.jpg" in the same folder as this file -->
+            <img src="photo.jpg" alt="Swetha Raji" onerror="this.style.display='none'; this.parentNode.innerHTML='SR';">
           </div>
         </div>
         <div class="hero-stats">
@@ -619,6 +632,7 @@
             <span class="pill" style="font-size:0.85rem; padding:0.4rem 0.9rem;">💃 Dancing</span>
             <span class="pill" style="font-size:0.85rem; padding:0.4rem 0.9rem;">🎨 Painting & Crafts</span>
             <span class="pill" style="font-size:0.85rem; padding:0.4rem 0.9rem;">📷 Photography</span>
+            <span class="pill" style="font-size:0.85rem; padding:0.4rem 0.9rem;">📷 Photography</span>
           </div>
         </div>
       </div>
@@ -648,6 +662,38 @@
           LinkedIn
         </a>
       </div>
+      <!-- CONTACT FORM -->
+      <div class="contact-form-wrap">
+        <div class="contact-form-label">Send me a message</div>
+        <!-- ACTION: replace YOUR_FORM_ID below with your Formspree ID (see instructions) -->
+        <form id="contactForm" action="https://formspree.io/f/xrerodyr" method="POST" class="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">Your Name</label>
+              <input type="text" id="fname" name="name" placeholder="Jane Smith" required>
+            </div>
+            <div class="form-group">
+              <label for="femail">Email Address</label>
+              <input type="email" id="femail" name="email" placeholder="jane@company.com" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="fcompany">Company / Role</label>
+            <input type="text" id="fcompany" name="company" placeholder="Acme Corp · Hiring Manager">
+          </div>
+          <div class="form-group">
+            <label for="fmessage">Message</label>
+            <textarea id="fmessage" name="message" rows="4" placeholder="Hi Swetha, I'd love to chat about…" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary form-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Send Message
+          </button>
+          <div id="form-success" class="form-success" style="display:none;">✓ Message sent! I'll be in touch soon.</div>
+          <div id="form-error" class="form-error" style="display:none;">Something went wrong. Please email me directly.</div>
+        </form>
+      </div>
+
       <p class="footer-copy">© 2025 Swetha Raji · Built with care</p>
     </div>
   </div>
@@ -664,6 +710,39 @@
     el.style.transitionDelay = `${i * 0.05}s`;
     observer.observe(el);
   });
+
+  // Contact form submission
+  const form = document.getElementById('contactForm');
+  if (form) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = form.querySelector('.form-btn');
+      const success = document.getElementById('form-success');
+      const error = document.getElementById('form-error');
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          form.reset();
+          success.style.display = 'block';
+          error.style.display = 'none';
+          btn.textContent = 'Sent ✓';
+        } else {
+          throw new Error('failed');
+        }
+      } catch {
+        error.style.display = 'block';
+        success.style.display = 'none';
+        btn.textContent = 'Send Message';
+        btn.disabled = false;
+      }
+    });
+  }
 </script>
 </body>
 </html>
